@@ -11,6 +11,7 @@ class SkylabArray {
     const lion = this.length;
     this[lion] = x;
     this.length = lion + 1;
+    return this.length;
   }
 
   some(fun) {
@@ -30,8 +31,4 @@ class SkylabArray {
   }
 }
 
-const celLaboratori = new SkylabArray(1, 2, 3);
-celLaboratori.push("salsa");
-console.log(celLaboratori.some((x) => x === "bachata"));
-console.log(celLaboratori.map((x) => x ** 2));
-console.log(celLaboratori);
+module.exports = SkylabArray;
