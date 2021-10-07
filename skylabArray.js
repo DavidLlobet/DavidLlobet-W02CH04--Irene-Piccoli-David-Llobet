@@ -14,9 +14,7 @@ class SkylabArray {
   }
 
   some(fun) {
-    const auxObject = Object.assign(this);
-    delete auxObject.length;
-    for (const i of auxObject) {
+    for (let i = 0; i < this.length - 1; i++) {
       if (fun(i)) {
         return true;
       }
@@ -25,14 +23,15 @@ class SkylabArray {
   }
 
   map(fun) {
-    const auxObject = Object.assign(this);
-    delete auxObject.length;
-    for (const i in auxObject) {
-      this[i] = fun(arr[i]);
+    for (let i = 0; i < this.length - 1; i++) {
+      console.log(fun(this[i]));
+      this[i] = fun(this[i]);
     }
-    return arr;
   }
 }
 
-const lo = new SkylabArray(1, 2, 3);
-console.log(lo);
+const celLaboratori = new SkylabArray(1, 2, 3);
+celLaboratori.push("salsa");
+console.log(celLaboratori.some((x) => x === "bachata"));
+console.log(celLaboratori.map((x) => x ** 2));
+console.log(celLaboratori);
