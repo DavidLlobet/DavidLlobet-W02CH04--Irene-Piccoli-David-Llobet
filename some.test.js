@@ -1,34 +1,37 @@
 function some(arr, fun) {
   let bool;
 
-  for (let i of arr) {
+  for (const i of arr) {
     if (fun(i)) {
       return true;
     }
   }
 
-  return false
+  return false;
 }
 
-describe("function add", function () {
+describe("function some", () => {
+  describe("si la función some recibe [1,2,3] y la función (x => x < 2)", () => {
+    test("entonces retorna true", () => {
+      const arr = [1, 2, 3];
+      const fun = (num) => num < 2;
+      const expected = true;
 
-	describe("function add", function () {
+      const result = some(arr, fun);
 
-		test("when function fun receives 2 and 3, returns 5", function() {
-	
-			//Arrange
-			const n1 = 2;
-			const n2 = 3;
-			const expected = 5;
-	
-			//Act
-			const result = add(n1, n2);
-	
-			//Assert
-			expect(result).toBe(expected)
+      expect(result).toBe(expected);
+    });
+  });
 
-		});
+  describe("si la función some recibe [1,2,3] y la función (x => x < 2)", () => {
+    test("entonces retorna true", () => {
+      const arr = [1, 2, 3];
+      const fun = (num) => num < 2;
+      const expected = true;
 
- });
+      const result = some(arr, fun);
 
-}
+      expect(result).toBe(expected);
+    });
+  });
+});
